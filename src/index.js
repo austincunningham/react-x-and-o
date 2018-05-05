@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Button, Grid, Header, List, Segment } from 'semantic-ui-react';
 import './index.css';
 
 
@@ -68,6 +69,7 @@ function calculateWinner(squares) {
       }
   
       return (
+        <Segment raised>
         <div>
           <div className="status">{status}</div>
           <div className="board-row">
@@ -86,6 +88,7 @@ function calculateWinner(squares) {
             {this.renderSquare(8)}
           </div>
         </div>
+        </Segment>
       );
     }
   }
@@ -93,6 +96,7 @@ function calculateWinner(squares) {
   class Game extends React.Component {
     render() {
       return (
+        <Segment stacked>
         <div className="game">
           <div className="game-board">
             <Board />
@@ -102,6 +106,7 @@ function calculateWinner(squares) {
             <ol>{/* TODO */}</ol>
           </div>
         </div>
+        </Segment>
       );
     }
   }
