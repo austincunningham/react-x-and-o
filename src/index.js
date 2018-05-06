@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Grid, Header, List, Segment } from 'semantic-ui-react';
+import { Button, Grid, Header, List, Segment, GridColumn, GridRow } from 'semantic-ui-react';
 import './index.css';
 
 
@@ -69,26 +69,32 @@ function calculateWinner(squares) {
       }
   
       return (
-        <Segment raised>
-        <div>
-          <div className="status">{status}</div>
-          <div className="board-row">
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
-          </div>
-        </div>
-        </Segment>
+        
+        <Grid>
+          <Grid.Column width={16}>
+            <Segment raised>
+              <div>
+                <div className="status">{status}</div>
+                <div className="board-row">
+                  {this.renderSquare(0)}
+                  {this.renderSquare(1)}
+                  {this.renderSquare(2)}
+                </div>
+                <div className="board-row">
+                  {this.renderSquare(3)}
+                  {this.renderSquare(4)}
+                  {this.renderSquare(5)}
+                </div>
+                <div className="board-row">
+                  {this.renderSquare(6)}
+                  {this.renderSquare(7)}
+                  {this.renderSquare(8)}
+                </div>
+              </div>
+            </Segment>
+          </Grid.Column>
+        </Grid>
+
       );
     }
   }
@@ -96,7 +102,14 @@ function calculateWinner(squares) {
   class Game extends React.Component {
     render() {
       return (
-        <Segment stacked>
+        <Grid>
+        <GridRow>  
+          <Segment color='red' inverted>
+            <Header> X and O </Header>
+          </Segment>
+        </GridRow>
+          <GridColumn width={7}></GridColumn>
+        <Segment color='red' inverted stacked>
         <div className="game">
           <div className="game-board">
             <Board />
@@ -107,6 +120,7 @@ function calculateWinner(squares) {
           </div>
         </div>
         </Segment>
+        </Grid>
       );
     }
   }
