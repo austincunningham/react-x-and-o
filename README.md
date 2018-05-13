@@ -1,4 +1,4 @@
-# About
+# About React-X-and-O's
 React X and O's game part of the tutorial for react, with added styling via semantic-ui-react
 
 ## Installation
